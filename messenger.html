@@ -50,7 +50,6 @@ canvas { position: fixed; inset: 0; width: 100%; height: 100vh; pointer-events: 
 .neon-btn:nth-of-type(2){animation-delay:.8s}
 .neon-btn:hover { box-shadow:0 0 35px rgba(120,180,255,.85), inset 0 0 18px rgba(120,180,255,.45); }
 
-/* ===== МЕССЕНДЖЕРЫ ===== */
 .messengers-section { margin-top:160px; padding:80px 20px; background:rgba(0,0,0,.2); color:#eaf2ff; position:relative; z-index:3; }
 .messengers-section h2 { text-align:center; margin-bottom:50px; }
 .messenger-item { display:flex; align-items:center; gap:30px; max-width:1100px; margin:0 auto 35px; padding:25px; background:rgba(20,30,60,.35); border-radius:18px; backdrop-filter:blur(6px); }
@@ -61,16 +60,13 @@ canvas { position: fixed; inset: 0; width: 100%; height: 100vh; pointer-events: 
 .download-btn:hover { box-shadow:0 0 28px rgba(120,180,255,.85), inset 0 0 12px rgba(120,180,255,.45); }
 .messenger-desc { color:#bcd6ff; font-size:1.05rem; line-height:1.5; }
 
-/* ===== FAQ ===== */
 .faq-section { padding:80px 20px; background:rgba(0,0,0,.2); text-align:center; color:#eaf2ff; position:relative; z-index:3; }
 .faq-question { font-size:1.2rem; font-weight:600; padding:12px 20px; background:rgba(20,30,60,.35); border-radius:12px; cursor:pointer; display:inline-block; margin-top:20px; }
 .faq-answer { max-height:0; overflow:hidden; transition:.4s; padding:0 20px; color:#bcd6ff; }
 
-/* ===== FOOTER ===== */
 .footer-note { text-align:center; font-size:.9rem; color:#bcd6ff; opacity:.75; padding:40px 20px 30px; position:relative; z-index:3; }
 .footer-note a { color:#eaf2ff; text-decoration:none; }
 
-/* ===== MOBILE FIX ===== */
 @media (max-width: 768px) {
   .btn-row { flex-direction: column; align-items: center; width: 100%; }
   .neon-btn { width: 90%; max-width: 340px; padding: 18px 0; }
@@ -81,7 +77,6 @@ canvas { position: fixed; inset: 0; width: 100%; height: 100vh; pointer-events: 
 
 @keyframes fadeUp { to {opacity:1;transform:none} }
 
-/* ===== МОДАЛЬНОЕ ОКНО ===== */
 #download-modal { display:none; position: fixed; inset: 0; z-index: 9999; }
 .modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.4); backdrop-filter: blur(6px); }
 .modal-content { position: absolute; top:50%; left:50%; transform: translate(-50%, -50%); background: rgba(20,30,60,0.9); border-radius: 18px; padding: 40px 20px; text-align:center; color:#eaf2ff; max-width: 400px; width: 90%; }
@@ -89,7 +84,6 @@ canvas { position: fixed; inset: 0; width: 100%; height: 100vh; pointer-events: 
 #modal-name { font-size:1.4rem; font-weight:600; margin-bottom:12px; }
 .modal-text { font-size:1rem; margin-bottom:20px; }
 
- /* подчеркивание важного */ 
 .custom-underline {
   display: inline-block;             
   border-bottom: 1px solid #abc1f3;  
@@ -97,18 +91,15 @@ canvas { position: fixed; inset: 0; width: 100%; height: 100vh; pointer-events: 
   padding-bottom: 1px;               
 }
 
-/* ===== ПЕРЕМЕННЫЕ ДЛЯ КНОПОК И ИКОНОК ===== */
 :root {
   --market-btn-width: 110px;
   --market-btn-height: 40px;
   --market-icon-width: 110px;
   --market-icon-height: 70px;
 
-  /* flex-позиционирование по умолчанию */
   --market-icon-justify: center;
   --market-icon-align: center;
 
-  /* цифровое смещение (по умолчанию центр) */
   --market-icon-top: 50%;
   --market-icon-left: 50%;
 }
@@ -135,7 +126,6 @@ canvas { position: fixed; inset: 0; width: 100%; height: 100vh; pointer-events: 
   transition: .25s ease;
   position: relative;
 
-  /* Шрифт как у кнопки Закрыть */
   font-size: 1rem;
   font-weight: 500;
   font-family: inherit;
@@ -158,7 +148,6 @@ canvas { position: fixed; inset: 0; width: 100%; height: 100vh; pointer-events: 
   transform: translate(-50%, -50%);
 }
 
-/* Кнопка закрытия */
 .modal-close { padding: 10px 22px; font-size:1rem; color:#e6f2ff; border:2px solid rgba(120,180,255,.6); border-radius:12px; background:rgba(20,30,60,.35); cursor:pointer; }
 .modal-close:hover { box-shadow:0 0 28px rgba(120,180,255,.85), inset 0 0 12px rgba(120,180,255,.45); }
 </style>
@@ -408,7 +397,6 @@ canvas { position: fixed; inset: 0; width: 100%; height: 100vh; pointer-events: 
 </div>
 
 <script>
-// ===== PARTICLES BACKGROUND =====
 const canvas=document.getElementById('particles');
 const ctx=canvas.getContext('2d');
 function resize(){ canvas.width=innerWidth; canvas.height=innerHeight; }
@@ -420,10 +408,8 @@ const particles=[];
 for(let i=0;i<120;i++){ particles.push({ x:Math.random()*canvas.width, y:Math.random()*canvas.height, r:Math.random()*2+.6, vx:(Math.random()-.5)*.3, vy:(Math.random()-.5)*.3, h:Math.random()*60+220 }); }
 (function draw(){ ctx.clearRect(0,0,canvas.width,canvas.height); if(mouse.x){ const g=ctx.createRadialGradient(mouse.x,mouse.y,0,mouse.x,mouse.y,mouse.r); g.addColorStop(0,'rgba(90,170,255,.25)'); g.addColorStop(.5,'rgba(90,170,255,.12)'); g.addColorStop(1,'rgba(90,170,255,0)'); ctx.fillStyle=g; ctx.beginPath(); ctx.arc(mouse.x,mouse.y,mouse.r,0,Math.PI*2); ctx.fill(); } for(const p of particles){ p.x+=p.vx; p.y+=p.vy; if(p.x<0||p.x>canvas.width)p.vx*=-1; if(p.y<0||p.y>canvas.height)p.vy*=-1; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fillStyle=`hsla(${p.h},100%,70%,.85)`; ctx.shadowBlur=16; ctx.shadowColor=`hsla(${p.h},100%,70%,1)`; ctx.fill(); } requestAnimationFrame(draw); })();
 
-// ===== FAQ =====
 document.querySelectorAll('.faq-question').forEach(q=>{ q.onclick=()=>{ const a=q.nextElementSibling; const open=a.style.maxHeight; a.style.maxHeight=open?null:a.scrollHeight+'px'; a.style.padding=open?'0 20px':'12px 20px'; }; });
 
-// ===== DOWNLOAD MODAL =====
 const downloadModal = document.getElementById('download-modal');
 
 const messengerLinks = {
@@ -484,21 +470,21 @@ const messengerLinks = {
     playmarket: "https://play.google.com/store/apps/details?id=com.bitchat.droid",
     appstore: "https://apps.apple.com/us/app/bitchat-mesh/id6748219622",
     microsoft: "", microsoftstore: "#", galaxystore: "", codeberg: "",
-    amazonstore: "", flathub: "", appgallery: "", webapp: "", snapstore: "", rustore: "", obtainium: "", openstore: "", openapk: "", apkmirror: "", aptoide: "", direct: "", offsite: "https://bitchat.free/", android: "https://github.com/permissionlesstech/bitchat-android/releases/download/1.7.0/app-universal-release.apk", download: "", windows: "", linux: "", macos: ""
+    amazonstore: "", flathub: "", appgallery: "", webapp: "", snapstore: "", rustore: "", obtainium: "", openstore: "", openapk: "", apkmirror: "", aptoide: "", direct: "", offsite: "https://bitchat.free/", android: "https://github.com/permissionlesstech/bitchat-android/releases/latest", download: "", windows: "", linux: "", macos: ""
   },
   "Element": {
     github: "https://github.com/element-hq", fdroid: "https://f-droid.org/packages/io.element.android.x",
     playmarket: "https://play.google.com/store/apps/details?id=io.element.android.x",
     appstore: "https://apps.apple.com/app/id1631335820",
     microsoft: "", microsoftstore: "", galaxystore: "", codeberg: "",
-    amazonstore: "", flathub: "", appgallery: "", webapp: "", snapstore: "", rustore: "", obtainium: "", openstore: "", openapk: "", apkmirror: "", aptoide: "", direct: "", offsite: "https://element.io/download", android: "https://github.com/element-hq/element-x-android/releases/download/v25.12.0/app-fdroid-arm64-v8a-release-signed.apk", download: "", windows: "https://packages.element.io/desktop/install/win32/x64/Element%20Setup.exe", linux: "https://element.io/download#linux", macos: "https://packages.element.io/desktop/install/macos/Element.dmg"
+    amazonstore: "", flathub: "", appgallery: "", webapp: "", snapstore: "", rustore: "", obtainium: "", openstore: "", openapk: "", apkmirror: "", aptoide: "", direct: "", offsite: "https://element.io/download", android: "https://github.com/element-hq/element-x-android/releases/latest", download: "", windows: "https://packages.element.io/desktop/install/win32/x64/Element%20Setup.exe", linux: "https://element.io/download#linux", macos: "https://packages.element.io/desktop/install/macos/Element.dmg"
   },
   "DeltaChat": {
-    github: "https://github.com/deltachat/deltachat-android/releases", fdroid: "https://f-droid.org/app/com.b44t.messenger",
+    github: "https://github.com/deltachat", fdroid: "https://f-droid.org/app/com.b44t.messenger",
     playmarket: "https://play.google.com/store/apps/details?id=chat.delta",
     appstore: "https://apps.apple.com/us/app/delta-chat/id1459523234",
     microsoft: "https://apps.microsoft.com/detail/9pjtxx7hn3pk", microsoftstore: "", galaxystore: "", codeberg: "",
-    amazonstore: "", flathub: "https://flathub.org/apps/details/chat.delta.desktop", appgallery: "https://url.cloud.huawei.com/pXnbdjuOhW?shareTo=qrcode", webapp: "", snapstore: "", rustore: "", obtainium: "https://apps.obtainium.imranr.dev/redirect?r=obtainium://app/{%22id%22:%22chat.delta%22,%22url%22:%22https://github.com/deltachat/deltachat-android%22,%22author%22:%22Delta%20Chat%20Contributors%22,%22name%22:%22Delta%20Chat%22,%22additionalSettings%22:%22{\%22about\%22:\%22Decentralized%20private%20messenger%20with%20chat-shared%20tools%20and%20games.\%22}%22}", openstore: "", openapk: "", apkmirror: "", aptoide: "", direct: "", offsite: "https://delta.chat/ru/download", android: "https://github.com/deltachat/deltachat-android/releases/download/v2.35.0/deltachat-gplay-release-2.35.0.apk", download: "", windows: "", linux: "", macos: "https://apps.apple.com/us/app/delta-chat-desktop/id1462750497"
+    amazonstore: "", flathub: "https://flathub.org/apps/details/chat.delta.desktop", appgallery: "https://url.cloud.huawei.com/pXnbdjuOhW?shareTo=qrcode", webapp: "", snapstore: "", rustore: "", obtainium: "https://apps.obtainium.imranr.dev/redirect?r=obtainium://app/{%22id%22:%22chat.delta%22,%22url%22:%22https://github.com/deltachat/deltachat-android%22,%22author%22:%22Delta%20Chat%20Contributors%22,%22name%22:%22Delta%20Chat%22,%22additionalSettings%22:%22{\%22about\%22:\%22Decentralized%20private%20messenger%20with%20chat-shared%20tools%20and%20games.\%22}%22}", openstore: "", openapk: "", apkmirror: "", aptoide: "", direct: "", offsite: "https://delta.chat/ru/download", android: "https://github.com/deltachat/deltachat-android/releases/latest", download: "", windows: "https://github.com/deltachat/deltachat-desktop/releases/latest", linux: "", macos: "https://apps.apple.com/us/app/delta-chat-desktop/id1462750497"
   },
   "Session": {
     github: "https://github.com/session-foundation", fdroid: "https://fdroid.getsession.org/",
@@ -513,7 +499,7 @@ const messengerLinks = {
     playmarket: "https://play.google.com/store/apps/details?id=chat.simplex.app",
     appstore: "https://apps.apple.com/us/app/simplex-chat/id1605771084",
     microsoft: "", microsoftstore: "", galaxystore: "", codeberg: "",
-    amazonstore: "", flathub: "", appgallery: "", webapp: "", snapstore: "", rustore: "", obtainium: "", openstore: "", openapk: "", apkmirror: "", aptoide: "", direct: "", offsite: "https://simplex.chat/", android: "", download: "", windows: "https://github.com/simplex-chat/simplex-chat/releases/latest/download/simplex-desktop-windows-x86_64.msi", linux: "https://github.com/simplex-chat/simplex-chat/releases/latest/download/simplex-chat-ubuntu-22_04-x86_64", macos: "https://github.com/simplex-chat/simplex-chat/releases/latest/download/simplex-desktop-macos-x86_64.dmg"
+    amazonstore: "", flathub: "", appgallery: "", webapp: "", snapstore: "", rustore: "", obtainium: "", openstore: "", openapk: "", apkmirror: "", aptoide: "", direct: "", offsite: "https://simplex.chat/", android: "", download: "https://github.com/simplex-chat/simplex-chat/releases/latest", windows: "", linux: "", macos: ""
   },
   "Olvid": {
     github: "",
@@ -535,7 +521,7 @@ const messengerLinks = {
     playmarket: "https://play.google.com/store/apps/details?id=org.jitsi.meet&hl=en&gl=US",
     appstore: "https://apps.apple.com/us/app/jitsi-meet/id1165103905",
     microsoft: "", microsoftstore: "", galaxystore: "", codeberg: "",
-    amazonstore: "", flathub: "https://flathub.org/apps/details/org.jitsi.jitsi-meet", appgallery: "", webapp: "", snapstore: "", rustore: "", obtainium: "", openstore: "", openapk: "", apkmirror: "", aptoide: "", direct: "", offsite: "https://jitsi.org/", android: "", download: "", windows: "https://github.com/jitsi/jitsi-meet-electron/releases/latest/download/jitsi-meet.exe", linux: "https://github.com/jitsi/jitsi-meet-electron/releases/latest/download/jitsi-meet-x86_64.AppImage", macos: "https://github.com/jitsi/jitsi-meet-electron/releases/latest/download/jitsi-meet.dmg"
+    amazonstore: "", flathub: "https://flathub.org/apps/details/org.jitsi.jitsi-meet", appgallery: "", webapp: "", snapstore: "", rustore: "", obtainium: "", openstore: "", openapk: "", apkmirror: "", aptoide: "", direct: "", offsite: "https://jitsi.org/", android: "", download: "https://github.com/jitsi/jitsi-meet-electron/releases/latest", windows: "", linux: "", macos: ""
   },
   "Zangi": {
     github: "", fdroid: "",
